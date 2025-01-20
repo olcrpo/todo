@@ -10,13 +10,16 @@ import SwiftData
 
 @Model
 final class ToDo {
-    var name: String
+    var id: String = UUID().uuidString
+    var title: String
     var isDone: Bool
     var isImportant: Bool
+    var createdAt: Date
     
-    init(name: String, isDone: Bool, isImportant: Bool) {
-        self.name = name
+    init(title: String, isDone: Bool = false, isImportant: Bool = false, createdAt: Date = Date()) {
+        self.title = title
         self.isDone = isDone
         self.isImportant = isImportant
+        self.createdAt = createdAt
     }
 }
